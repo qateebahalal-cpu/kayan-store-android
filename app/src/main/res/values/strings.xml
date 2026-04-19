@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">كيان ستور</string>
+    <string name="app_tagline">تسوق بذكاء</string>
+    <string name="exit_message">هل تريد الخروج من التطبيق؟</string>
+    <string name="exit_yes">خروج</string>
+    <string name="exit_no">إلغاء</string>
+    <string name="whatsapp_not_installed">واتساب غير مثبت</string>
+    <string name="loading_error">خطأ في التحميل</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="choose_file">اختر ملفاً</string>
+</resources>

@@ -1,0 +1,41 @@
+{
+  "name": "كيان ستور - تسوق بذكاء",
+  "short_name": "كيان ستور",
+  "description": "متجرك الإلكتروني الأول في اليمن",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#FF6B2B",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%23FF6B2B'/><text y='140' x='20' font-size='150'>🛍️</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23FF6B2B'/><text y='380' x='50' font-size='420'>🛍️</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "المتجر",
+      "short_name": "تسوق",
+      "url": "./index.html#shop",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='90'>🛍️</text></svg>", "sizes": "96x96"}]
+    },
+    {
+      "name": "طلباتي",
+      "short_name": "الطلبات",
+      "url": "./index.html#orders",
+      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='90'>📦</text></svg>", "sizes": "96x96"}]
+    }
+  ]
+}

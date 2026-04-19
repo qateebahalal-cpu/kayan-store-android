@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="كيان ستور - متجرك الإلكتروني الأول في اليمن. تسوق آلاف المنتجات الأصيلة بأفضل الأسعار مع شحن سريع لجميع المحافظات.">
+  <meta name="keywords" content="كيان ستور, تسوق, يمن, إلكترونيات, أزياء, متجر إلكتروني">
+  <meta name="author" content="علي قتيبة - aliqateebah@gmail.com">
+  <meta name="theme-color" content="#FF6B2B">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="كيان ستور - تسوق بذكاء">
+  <meta property="og:description" content="متجرك الإلكتروني الأول في اليمن">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_YE">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="كيان ستور">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <title>كيان ستور | تسوق بذكاء • تسوق بكيان</title>
+
+  <style>
+    /* ===== LOADING SCREEN ===== */
+    #appLoader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .loader-logo {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #FF6B2B, #E94560);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 24px;
+      animation: loaderPulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(255,107,43,0.4);
+    }
+    @keyframes loaderPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255,107,43,0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 0 60px rgba(255,107,43,0.6); }
+    }
+    .loader-title {
+      font-family: 'Almarai', 'Cairo', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff, #FF6B2B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .loader-subtitle {
+      color: rgba(160,160,184,0.7);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+      font-family: 'Cairo', sans-serif;
+    }
+    .loader-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .loader-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #FF6B2B, #E94560, #FF6B2B);
+      background-size: 200% 100%;
+      border-radius: 99px;
+      animation: loaderSlide 1.5s ease-in-out infinite;
+    }
+    @keyframes loaderSlide {
+      0% { width: 0; background-position: 0% 50%; }
+      50% { width: 70%; background-position: 100% 50%; }
+      100% { width: 100%; background-position: 0% 50%; }
+    }
+    .loader-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .loader-dot {
+      width: 8px; height: 8px;
+      background: var(--primary, #FF6B2B);
+      border-radius: 50%;
+      animation: dotBounce 1.2s ease-in-out infinite;
+    }
+    .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ===== HEADER SCROLLED ===== */
+    .header.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* ===== MOBILE SEARCH ===== */
+    @media (max-width: 768px) {
+      #mobileSearchBtn { display: flex !important; }
+      .search-container { display: none; }
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      flex: 1;
+    }
+
+    /* ===== BACK TO TOP ===== */
+    #scrollTopBtn:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 20px rgba(255,107,43,0.5) !important;
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    @media (pointer: fine) {
+      body { cursor: default; }
+      a, button, [data-product-id], .category-card, .filter-option, .social-btn,
+      .gallery-thumb, .color-option, .option-btn, .cart-item-remove { cursor: pointer; }
+    }
+
+    /* ===== PWA INSTALL BANNER ===== */
+    #installBanner {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: none;
+      gap: 12px;
+      align-items: center;
+      max-width: 320px;
+      box-shadow: var(--shadow-lg);
+      z-index: 100;
+      animation: slideUp 0.3s ease;
+    }
+    #installBanner.show { display: flex; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="appLoader">
+    <div class="loader-logo">🛍️</div>
+    <div class="loader-title">كيان ستور</div>
+    <div class="loader-subtitle">تسوق بذكاء • تسوق بكيان</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-dots">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+    </div>
+  </div>
+
+  <!-- ===== APP ===== -->
+  <div id="app">
+
+    <!-- Header -->
+    <header id="appHeader" style="position:sticky;top:0;z-index:var(--z-header)"></header>
+
+    <!-- Main Content -->
+    <main class="main-content" style="position:relative;z-index:1">
+      <div class="main-wrapper">
+        <div id="mainContent">
+          <!-- Page content rendered here by JS -->
+          <div style="display:flex;align-items:center;justify-content:center;height:400px">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="appFooter"></footer>
+
+  </div>
+
+  <!-- ===== PWA Install Banner ===== -->
+  <div id="installBanner">
+    <span style="font-size:32px">📱</span>
+    <div style="flex:1">
+      <div style="font-weight:800;font-size:0.88rem;margin-bottom:2px">ثبّت كيان ستور</div>
+      <div style="font-size:0.75rem;color:var(--text-muted)">للوصول السريع من شاشتك الرئيسية</div>
+    </div>
+    <div style="display:flex;gap:6px;flex-direction:column">
+      <button class="btn btn-primary btn-sm" id="installBtn">تثبيت</button>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('installBanner').classList.remove('show')">لاحقاً</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/renderers.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages.js"></script>
+
+  <script>
+    // ===== APP BOOTSTRAP =====
+    window.addEventListener('DOMContentLoaded', async () => {
+      // Start loading
+      const loader = document.getElementById('appLoader');
+
+      try {
+        // Init the store
+        await KayanStore.init();
+
+        // Scroll to top button
+        KayanStore.renderScrollTop();
+
+        // Hide loader
+        setTimeout(() => {
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+          }
+        }, 1200);
+
+      } catch (error) {
+        console.error('Store init error:', error);
+        if (loader) {
+          loader.innerHTML = `
+            <div style="text-align:center;padding:32px">
+              <div style="font-size:48px;margin-bottom:16px">⚠️</div>
+              <div style="font-size:1.2rem;font-weight:700;margin-bottom:8px">حدث خطأ في التحميل</div>
+              <div style="color:rgba(160,160,184,0.7);margin-bottom:20px">يرجى تحديث الصفحة أو التحقق من الاتصال</div>
+              <button onclick="location.reload()" style="background:#FF6B2B;border:none;color:white;padding:12px 24px;border-radius:12px;cursor:pointer;font-size:1rem;font-family:Cairo,sans-serif">تحديث الصفحة</button>
+            </div>
+          `;
+        }
+      }
+    });
+
+    // ===== PWA =====
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Show install banner after 3 seconds
+      setTimeout(() => {
+        document.getElementById('installBanner')?.classList.add('show');
+      }, 3000);
+    });
+
+    document.getElementById('installBtn')?.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          KayanStore?.toast('success', '✅ تم التثبيت!', 'يمكنك الوصول للمتجر من شاشتك الرئيسية');
+        }
+        deferredPrompt = null;
+        document.getElementById('installBanner')?.classList.remove('show');
+      }
+    });
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('SW registered'))
+        .catch(() => {});
+    }
+
+    // ===== PERFORMANCE: Preload images =====
+    window.addEventListener('load', () => {
+      if (KayanStore.data) {
+        KayanStore.data.products.slice(0, 6).forEach(p => {
+          const img = new Image();
+          img.src = p.image;
+        });
+      }
+    });
+  </script>
+</body>
+</html>

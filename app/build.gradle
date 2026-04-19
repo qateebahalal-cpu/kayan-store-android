@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.kayanstore.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.kayanstore.app"
+        minSdk 21
+        targetSdk 34
+        versionCode 2
+        versionName "2.0"
+
+        // Arabic RTL support
+        resConfigs "ar", "en"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug // Replace with your keystore for production
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // Bundle Arabic fonts
+    aaptOptions {
+        noCompress "ttf", "otf"
+    }
+
+    // APK output naming
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "KayanStore-v${versionName}-${variant.buildType.name}.apk"
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.webkit:webkit:1.11.0'
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base theme -->
+    <style name="Theme.KayanStore" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">#0A0A0F</item>
+        <item name="android:statusBarColor">#0A0A0F</item>
+        <item name="android:navigationBarColor">#0A0A0F</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="colorPrimary">#FF6B2B</item>
+        <item name="colorPrimaryDark">#0A0A0F</item>
+        <item name="colorAccent">#FF6B2B</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Splash theme (fullscreen) -->
+    <style name="Theme.KayanStore.Splash" parent="Theme.KayanStore">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">#0A0A0F</item>
+    </style>
+
+    <!-- Dialog style -->
+    <style name="Theme.KayanStore.Dialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">#1A1A2E</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="colorAccent">#FF6B2B</item>
+    </style>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_primary">#0A0A0F</color>
+    <color name="bg_secondary">#1A1A2E</color>
+    <color name="accent_orange">#FF6B2B</color>
+    <color name="accent_orange_light">#FF8C42</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#AAAACC</color>
+    <color name="text_muted">#555577</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
